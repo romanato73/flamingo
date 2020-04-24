@@ -13,12 +13,15 @@
         "php": "^7.2",
         "illuminate/database": "^7.4",
         "php-parallel-lint/php-console-color": "^0.2.0",
-        "romanato/php-coloringo-cli": "dev-master"
+        "romanato/php-flashingo-messages": "^1.0"
     },
     "autoload": {
         "psr-4": {
             "Flamingo\\": "flamingo/",
             "App\\": "app/"
         }
+    },
+    "require-dev": {
+        "romanato/php-coloringo-cli": "^1.0"
     }
 }
