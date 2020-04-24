@@ -1,4 +1,4 @@
-<p style="margin: auto;">
+<p style="text-align: center;">
     <img src="https://res.cloudinary.com/romanato/image/upload/v1587752056/Flamingo%20Framework/flamingo_wide.png" width="400" alt="Flamingo Framework Logo">
 </p>	
 
