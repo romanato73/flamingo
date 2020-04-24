@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+define('FLAMINGO_START', microtime(true));
+
+/**
+ * Register The Auto Loader.
+ */
+
+require __DIR__ . '/vendor/autoload.php';
+
+/**
+ * Create new Console instance.
+ */
+
+$kernel = new Flamingo\Console\Kernel();
+
+/**
+ * Start console with arguments.
+ */
+
+$kernel->start($argc, $argv);
+
+/**
+ * Terminate console.
+ */
+
+$kernel->terminate(FLAMINGO_START);

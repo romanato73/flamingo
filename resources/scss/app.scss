@@ -1,0 +1,16 @@
+@import "colors";
+@import "~bootstrap";
+
+body {
+  font-family: "Montserrat", "Roboto", "Open Sans", "Tahoma", "Arial", sans-serif;
+  background-color: $dark;
+  color: $light;
+}
+
+.list-group-item {
+  background-color: $primary;
+  border-color: transparent;
+  &.completed {
+    background-color: $success;
+  }
+}

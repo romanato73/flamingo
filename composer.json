@@ -1,0 +1,24 @@
+{
+    "name": "romanato/flamingo",
+    "description": "A Simple PHP MVC Framework.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roman",
+            "email": "romikor1999@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "illuminate/database": "^7.4",
+        "php-parallel-lint/php-console-color": "^0.2.0",
+        "romanato/php-coloringo-cli": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flamingo\\": "flamingo/",
+            "App\\": "app/"
+        }
+    }
+}
