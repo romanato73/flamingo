@@ -1,33 +1,46 @@
 <?php
 
-use Flamingo\Kernel\App;
-use Flamingo\Kernel\{Helpers, Router, Request};
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Flamingo\Kernel\{App, Helpers};
+use Flamingo\Http\{Router, Request};
 
-/** Load Helpers */
+/**
+ * Load helpers.
+ *
+ * Helpers are collection of functions,
+ * which helps you to develop faster,
+ * more effective and secure.
+ */
 Helpers::load(__DIR__ . '/../flamingo/Helpers/');
 
-/** Load config folder into app container */
-App::configs(ROOT . '/config/');
+/**
+ * Load configs into the app container.
+ *
+ * App container is an registry of configs,
+ * which can be used in development.
+ * Every config has the name same as the file.
+ * You can use it by calling an App instance:
+ * App::get(name)
+ */
+App::configs(__DIR__ . '/../config/');
 
-/** New capsule instance */
-$capsule = new Capsule();
+/**
+ * Initialize App
+ *
+ * Initializes all important functions for
+ * your app.
+ */
+App::init();
 
-/** Create connection */
-$capsule->addConnection([
-    'driver' => App::get('database')['driver'],
-    'host' => App::get('database')['host'],
-    'username' => App::get('database')['user'],
-    'password' => App::get('database')['password'],
-    'database' => App::get('database')['database'],
-    'charset' => App::get('database')['charset'],
-    'collation' => App::get('database')['collation'],
-    'prefix' => App::get('database')['prefix']
-]);
-
-/** Boot eloquent */
-$capsule->bootEloquent();
-
-/** Load routes */
-Router::load(ROOT . '/routes/')
+/**
+ * Load routes
+ *
+ * All routes can be configured inside routes
+ * directory. It basically attach all registered
+ * routes inside Router register.
+ *
+ * After loading a routes get uri and find if
+ * that matches with co-responding controller
+ * and method inside routes registry.
+ */
+Router::load(__DIR__ . '/../routes/')
     ->direct(Request::uri(), Request::method());

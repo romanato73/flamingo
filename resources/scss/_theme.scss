@@ -1,0 +1,26 @@
+$themes: (
+  light: (
+    background: #f5f6f8,
+    color: #333333,
+    primary: #007bff,
+    secondary: #ff007b,
+    danger: #ff351c,
+    warning: #d86e16,
+    info: #9968ed,
+    success: #00FF7F,
+  ),
+  dark: (
+    background: #18181f,
+    color: #fff,
+    primary: #007bff,
+    secondary: #ff007b,
+    danger: #ff351c,
+    warning: #d86e16,
+    info: #9968ed,
+    success: #00FF7F,
+  )
+);
+
+@function color($theme, $component) {
+  @return map_get(map_get($themes, $theme), $component);
+}

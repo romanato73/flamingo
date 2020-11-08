@@ -10,20 +10,19 @@
 
     <style>
         html, body {
-            background-color: #29263D;
-            color: #e5e5e5;
-            font-family: 'Montserrat', 'Open Sans', 'Arial', 'Tahoma', sans-serif;
-            font-weight: normal;
-            height: 100vh;
             margin: 0;
+            height: 100%;
         }
 
-        .container {
-            height: 100vh;
+        body {
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             flex-direction: column;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #232134;
+            color: #fff;
+            text-align: center;
         }
 
         b {
@@ -36,10 +35,10 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="message">
-        <?= $this->getMessage(); ?>
-    </div>
+
+<div class="message">
+    <?= $this->getMessage(); ?>
 </div>
+
 </body>
 </html>

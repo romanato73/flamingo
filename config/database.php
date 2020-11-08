@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Here you can setup your database.
+ *
+ * Currently supported driver is only mysql.
+ */
+
 return [
     "driver" => "mysql",
     "host" => "localhost",

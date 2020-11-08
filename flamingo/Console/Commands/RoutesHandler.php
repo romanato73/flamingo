@@ -2,7 +2,7 @@
 
 namespace Flamingo\Console\Commands;
 
-use Flamingo\Kernel\Router;
+use Flamingo\Http\Router;
 
 class RoutesHandler extends Handler
 {
@@ -37,10 +37,12 @@ class RoutesHandler extends Handler
 
         // Loop through routes
         foreach ($router->routes as $method => $route) {
+            $method = str_pad($method, 10, ' ', STR_PAD_RIGHT);
             foreach ($route as $uri => $controller) {
                 if (is_string($controller)) {
                     print (
-                        $this->console->inline("  /{$uri} ", 'green')
+                        $this->console->inline("  {$method}", 'cyan')
+                        .$this->console->inline("/{$uri} ", 'green')
                         .$this->console->inline($controller, 'yellow')
                         .$this->console->newLine()
                     );
@@ -48,7 +50,8 @@ class RoutesHandler extends Handler
 
                 if (is_callable($controller)) {
                     print (
-                        $this->console->inline("  /{$uri} ", 'green')
+                        $this->console->inline("  {$method}", 'cyan')
+                        .$this->console->inline("/{$uri} ", 'green')
                         .$this->console->inline('Callable::self', 'magenta')
                         .$this->console->newLine()
                     );

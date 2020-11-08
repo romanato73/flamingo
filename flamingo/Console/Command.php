@@ -31,13 +31,20 @@ class Command
         $this->console = new Coloringo();
     }
 
-    public function runCommand($argc, $argv)
+    /**
+     * Find command and run.
+     *
+     * @param int $argc
+     * @param array $argv
+     * @return int
+     */
+    public function runCommand(int $argc, array $argv)
     {
         // Get real arguments (subtract the program path)
         $argc -= 1;
         // Find argument
         foreach ($this->commands as $command => $parameters) {
-            // Parameters and command found
+            // Find command
             if ($parameters == $argc && $command == $argv[1]) {
                 if ($argc > 1) {
                     unset($argv[0]);
@@ -47,10 +54,11 @@ class Command
                 }
                 return $this->$command();
             }
+
             // Command found but invalid parameters
             if ($command == $argv[1] && $parameters != $argc) {
                 return print $this->console->out(
-                    "Command '$argv[1]' expected $parameters prameters ($argc obtained).",
+                    "Command '$argv[1]' expected $parameters parameters ($argc obtained).",
                     'red'
                 );
             }
@@ -82,12 +90,12 @@ class Command
     /**
      * Shows one specific log.
      *
-     * @param string $date
+     * @param array $argv
      */
-    public function log($date)
+    public function log($argv)
     {
         $routes = new LogsHandler;
 
-        $routes->loadOne($date);
+        $routes->loadOne($argv);
     }
 }

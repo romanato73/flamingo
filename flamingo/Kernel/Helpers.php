@@ -10,9 +10,9 @@ class Helpers
     /**
      * Load Helpers.
      *
-     * @param $path
+     * @param string $path
      */
-    public static function load($path)
+    public static function load(string $path)
     {
         $files = array_values(array_diff(scandir($path), ['.', '..']));
         foreach ($files as $file) {

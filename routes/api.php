@@ -10,12 +10,9 @@
  * $router->api('users', 'ApiController@users');
  */
 
+$router = new \Flamingo\Http\Router;
+
 $router->api('tasks', function () {
     $tasks = \App\Models\Task::all();
     return apiView($tasks);
-});
-
-$router->api('messages', function () {
-    $messages = \App\Models\Message::all();
-    return apiView($messages);
 });

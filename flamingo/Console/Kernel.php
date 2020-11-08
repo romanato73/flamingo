@@ -3,12 +3,10 @@
 
 namespace Flamingo\Console;
 
-use Flamingo\Console\Command;
 use Romanato\ColoringoCLI\Coloringo;
 
 class Kernel
 {
-
     private $argc;
     private $argv;
     private $console;
@@ -63,7 +61,10 @@ class Kernel
         $runtime = substr($endTime, 0, 6);
 
         // Print execution time message
-        $this->console->out("Program was executed in {$runtime}ms");
+        print (
+            $this->console->newLine()
+            .$this->console->out("Program was executed in {$runtime}ms")
+        );
 
         exit();
     }
@@ -73,7 +74,6 @@ class Kernel
      */
     public function printUsage()
     {
-
         print($this->console->out('Available commands:', 'yellow'));
 
         foreach ($this->availableCommands as $category => $command) {

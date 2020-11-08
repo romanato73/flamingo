@@ -13,24 +13,10 @@
  * get, post, put, delete
  */
 
+$router = new \Flamingo\Http\Router;
+
 $router->get('', function() {
-    return view('index');
+    return view('welcome');
 });
 
-$router->get('about', function() {
-    return view('about');
-});
-
-$router->get('messages', 'MessageController@index');
-$router->post('messages', 'MessageController@store');
-
-$router->get('tasks', 'TaskController@index');
-
-$router->get('users', function () {
-    $users = \App\Models\User::all();
-
-    return view('users', ['users' => $users]);
-});
-
-$router->get('auth/login', 'AuthController@login');
-$router->get('auth/register', 'AuthController@register');
+$router->resource('tasks', 'TaskController');

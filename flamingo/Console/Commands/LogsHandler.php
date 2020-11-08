@@ -32,10 +32,10 @@ class LogsHandler extends Handler
     /**
      * Load only one specified log
      *
-     * @param array $argv Date
+     * @param array $argv
      * @return int|void
      */
-    public function loadOne($argv)
+    public function loadOne(array $argv)
     {
         $date = $argv[0];
 

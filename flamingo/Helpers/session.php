@@ -2,6 +2,7 @@
 
 use Flamingo\Exception\HttpException;
 
+// Check for session status
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -10,7 +11,7 @@ if (session_status() == PHP_SESSION_NONE) {
  * Cross-Site Request Forgery Protection
  */
 
-// Create key for hash_hmac function
+// Generate key for hash_hmac function
 if (empty($_SESSION['csrf_key'])) {
     $_SESSION['csrf_key'] = bin2hex(random_bytes(32));
 }
@@ -35,11 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 }
 
-/**
- * Return CSRF token from SESSION
- *
- * @return mixed
- */
-function csrf() {
-    return $_SESSION['csrf'];
+if (!function_exists('csrf')) {
+    /**
+     * Return CSRF token from SESSION
+     *
+     * @return mixed
+     */
+    function csrf() {
+        return $_SESSION['csrf'];
+    }
 }

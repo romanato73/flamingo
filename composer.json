@@ -13,7 +13,8 @@
         "php": "^7.2",
         "illuminate/database": "^7.4",
         "php-parallel-lint/php-console-color": "^0.2.0",
-        "romanato/php-flashingo-messages": "^1.0"
+        "romanato/php-flashingo-messages": "^1.0",
+        "illuminate/pagination": "^7.9.2"
     },
     "autoload": {
         "psr-4": {
